@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Level;
+use common\models\Transition;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -140,7 +142,13 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $count_level = Level::find()->count();
+        $count_transition = Transition::find()->count();
+
+        return $this->render('about', [
+            'count_level' => $count_level,
+            'count_transition' => $count_transition,
+        ]);
     }
 
     /**
