@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use \cinghie\multilanguage\widgets\MultiLanguageWidget;
 
 AppAsset::register($this);
 ?>
@@ -53,6 +54,7 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
     }
+    $menuItems[] = '<li style="padding: 15px 0">' .MultiLanguageWidget::widget([]) . '</li>';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

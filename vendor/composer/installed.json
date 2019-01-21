@@ -1,17 +1,17 @@
 [
     {
         "name": "behat/gherkin",
-        "version": "v4.5.1",
-        "version_normalized": "4.5.1.0",
+        "version": "v4.6.0",
+        "version_normalized": "4.6.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Behat/Gherkin.git",
-            "reference": "74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a"
+            "reference": "ab0a02ea14893860bca00f225f5621d351a3ad07"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Behat/Gherkin/zipball/74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a",
-            "reference": "74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a",
+            "url": "https://api.github.com/repos/Behat/Gherkin/zipball/ab0a02ea14893860bca00f225f5621d351a3ad07",
+            "reference": "ab0a02ea14893860bca00f225f5621d351a3ad07",
             "shasum": ""
         },
         "require": {
@@ -19,13 +19,13 @@
         },
         "require-dev": {
             "phpunit/phpunit": "~4.5|~5",
-            "symfony/phpunit-bridge": "~2.7|~3",
-            "symfony/yaml": "~2.3|~3"
+            "symfony/phpunit-bridge": "~2.7|~3|~4",
+            "symfony/yaml": "~2.3|~3|~4"
         },
         "suggest": {
             "symfony/yaml": "If you want to parse features, represented in YAML files"
         },
-        "time": "2017-08-30T11:04:43+00:00",
+        "time": "2019-01-16T14:22:17+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -255,18 +255,65 @@
         ]
     },
     {
+        "name": "cinghie/yii2-multilanguage",
+        "version": "2.0.2",
+        "version_normalized": "2.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cinghie/yii2-multilanguage.git",
+            "reference": "89da165b2b922746d62d0726d71d5bc5b1eaed7b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cinghie/yii2-multilanguage/zipball/89da165b2b922746d62d0726d71d5bc5b1eaed7b",
+            "reference": "89da165b2b922746d62d0726d71d5bc5b1eaed7b",
+            "shasum": ""
+        },
+        "require": {
+            "codemix/yii2-localeurls": "*",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2018-10-10T22:17:21+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "cinghie\\multilanguage\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Gogodigital.it",
+                "email": "info@gogodigital.it",
+                "homepage": "http://www.gogodigital.it/"
+            }
+        ],
+        "description": "Multi Language support for Yii2 Framework.",
+        "homepage": "https://github.com/cinghie/yii2-multilanguage",
+        "keywords": [
+            "yii2 lang",
+            "yii2 language",
+            "yii2 multilanguage",
+            "yii2 translate"
+        ]
+    },
+    {
         "name": "codeception/base",
         "version": "2.5.2",
         "version_normalized": "2.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Codeception/base.git",
-            "reference": "50aaf8bc032823018aed8d14114843b4a2c52a48"
+            "reference": "4f89de32929fef53ca6d83b159fe329b6d484c1c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Codeception/base/zipball/50aaf8bc032823018aed8d14114843b4a2c52a48",
-            "reference": "50aaf8bc032823018aed8d14114843b4a2c52a48",
+            "url": "https://api.github.com/repos/Codeception/base/zipball/4f89de32929fef53ca6d83b159fe329b6d484c1c",
+            "reference": "4f89de32929fef53ca6d83b159fe329b6d484c1c",
             "shasum": ""
         },
         "require": {
@@ -348,17 +395,17 @@
     },
     {
         "name": "codeception/phpunit-wrapper",
-        "version": "6.5.0",
-        "version_normalized": "6.5.0.0",
+        "version": "6.5.1",
+        "version_normalized": "6.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Codeception/phpunit-wrapper.git",
-            "reference": "b19957dd1b5f3854e60e37e9282519925efcd145"
+            "reference": "d78f9eb9c4300a5924cc27dee03e8c1a96fcf5f3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/b19957dd1b5f3854e60e37e9282519925efcd145",
-            "reference": "b19957dd1b5f3854e60e37e9282519925efcd145",
+            "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/d78f9eb9c4300a5924cc27dee03e8c1a96fcf5f3",
+            "reference": "d78f9eb9c4300a5924cc27dee03e8c1a96fcf5f3",
             "shasum": ""
         },
         "require": {
@@ -374,7 +421,7 @@
             "codeception/specify": "*",
             "vlucas/phpdotenv": "^2.4"
         },
-        "time": "2019-01-01T15:39:11+00:00",
+        "time": "2019-01-13T10:34:55+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -463,6 +510,49 @@
             }
         ],
         "description": "BDD assertion library for PHPUnit"
+    },
+    {
+        "name": "codemix/yii2-localeurls",
+        "version": "1.7.1",
+        "version_normalized": "1.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/codemix/yii2-localeurls.git",
+            "reference": "f681040b9da5b35a8653041f98bd58c2dd84af07"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/codemix/yii2-localeurls/zipball/f681040b9da5b35a8653041f98bd58c2dd84af07",
+            "reference": "f681040b9da5b35a8653041f98bd58c2dd84af07",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2018-06-18T12:11:10+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "codemix\\localeurls\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Härtl",
+                "email": "haertl.mike@gmail.com"
+            }
+        ],
+        "description": "Automatic locale/language management for URLs.",
+        "keywords": [
+            "i18n",
+            "locale",
+            "yii2"
+        ]
     },
     {
         "name": "doctrine/instantiator",
