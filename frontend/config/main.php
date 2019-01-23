@@ -44,6 +44,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/about',
+                '<controller:\w+>/<id:\d+>' => '<controller>/index',
             ],
         ],
         'i18n' => [
