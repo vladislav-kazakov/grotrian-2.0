@@ -13,48 +13,34 @@ $this->title = Yii::t('app', 'Atomic levels - {Z}', ['Z' => $atom->periodicTable
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
+    'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
         [
             'label' => Yii::t('level', 'Configuration type'),
-            'attribute' => 'configType',
+            'attribute' => 'typeConfigurationFormatHtml',
             'format' => 'html',
-            'value' => function($model) {
-                return $model->typeConfigurationFormatHtml;
-            },
         ],
         [
             'label' => Yii::t('level', 'Configuration'),
-            'attribute' => 'config',
+            'attribute' => 'configurationFormatHtml',
             'format' => 'html',
-            'value' => function($model) {
-                return $model->configurationFormatHtml;
-            },
         ],
         'J',
         [
             'label' => Yii::t('level', 'Term'),
             'attribute' => 'term',
             'format' => 'html',
-            'value' => function($model) {
-                return $model->term;
-            },
         ],
         [
             'header' => Yii::t('level', 'Energy (cm<sup>-1</sup>)'),
             'attribute' => 'ENERGY',
             'format' => 'ntext',
-            'value' => function($model) {
-                return $model->ENERGY === null ? '' : $model->ENERGY;
-            },
         ],
         [
             'label' => Yii::t('level', 'Lifetime'),
             'attribute' => 'LIFETIME',
             'format' => 'ntext',
-            'value' => function($model) {
-                return $model->LIFETIME === null ? '' : $model->LIFETIME;
-            },
         ],
         [
             'label' => Yii::t('level', 'Source'),

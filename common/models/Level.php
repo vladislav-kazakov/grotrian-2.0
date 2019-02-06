@@ -86,7 +86,7 @@ class Level extends ActiveRecord
         if (!empty($this->TERMPREFIX)) {
             $term .= "<sup>{$this->TERMPREFIX}</sup>";
         }
-        if ($this->TERMFIRSTPART == '' or $this->TERMFIRSTPART == ' ') {
+        if (trim($this->TERMFIRSTPART) == '') {
             $term .= '(?)';
         } else {
             $term .= "<span>{$this->TERMFIRSTPART}</span>";
