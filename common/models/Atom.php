@@ -19,6 +19,8 @@ use yii\db\ActiveRecord;
  * @property string SPECTRUM_IMG
  * @property object periodicTable
  * @property object interfaceContent
+ * @property object levels
+ * @property object transitions
  * @package common\models
  */
 class Atom extends ActiveRecord
@@ -45,5 +47,21 @@ class Atom extends ActiveRecord
     public function getInterfaceContent()
     {
         return $this->hasOne(InterfaceContent::className(), ['ID' => 'DESCRIPTION']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLevels()
+    {
+        return $this->hasMany(Level::className(), ['ID_ATOM' => 'ID']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTransitions()
+    {
+        return $this->hasMany(Transition::className(), ['ID_ATOM' => 'ID']);
     }
 }
