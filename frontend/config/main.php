@@ -10,7 +10,17 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\controllers',
+    'controllerNamespace' => 'frontend\controllers', 'modules' => [
+        'user' => [
+            'class' => 'frontend\modules\user\Module'
+        ],
+        'api' => [
+            'class' => 'frontend\modules\api\v1\Module',
+            'modules' => [
+                'v1' => 'frontend\modules\api\v1\Module'
+            ]
+        ],
+    ],
     'components' => [
         'request' => [
             'baseUrl' => '',
@@ -43,6 +53,15 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => [
+                        'api/v1/atom',
+                        'api/v1/periodicTable',
+                        'api/v1/level',
+                    ],
+                    'extraPatterns' => ['GET search' => 'search'],
+                ],
                 '' => 'site/about',
                 '<controller:\w+>/<id:\d+>' => '<controller>/index',
             ],
