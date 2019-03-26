@@ -30,6 +30,21 @@ class Level extends ActiveRecord
         return '{{LEVELS}}';
     }
 
+    public function extraFields()
+    {
+        return [
+            'typeConfigurationFormatHtml' => function ($model) {
+                return $model->typeConfigurationFormatHtml;
+            },
+            'configurationFormatHtml' => function ($model) {
+                return $model->configurationFormatHtml;
+            },
+            'termHtml' => function ($model) {
+                return $model->term;
+            },
+        ];
+    }
+
     /**
      * generate type configuration
      */
