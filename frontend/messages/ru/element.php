@@ -6,7 +6,7 @@ return [
     'Found' => 'Найдено',
     'levels' => 'уровней',
     'transitions' => 'переходов',
-    'view' => 'Посмотреть',
+    '[view]' => '[Посмотреть]',
     'Export to XSAMS' => 'Экспорт в XSAMS',
     '' => '',
 ];
