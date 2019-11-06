@@ -9,6 +9,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\ArrayHelper;
+use common\models\PeriodicTable;
 
 /**
  * Class TransitionsController
@@ -30,6 +31,21 @@ class TransitionsController extends Controller
             throw new HttpException(404);
         }
 
+        $periodic_table = PeriodicTable::find()
+            ->orderBy('ID')
+            ->all();
+        $atoms = Atom::find()->select(['ID', 'ID_ELEMENT'])->where(['IONIZATION' => '0','MASS_NUMBER' => null])->distinct()->orderBy('ID_ELEMENT')->all();
+        $ions = Atom::find()->select(['IONIZATION'])->where(['ID_ELEMENT' => $atom->ID_ELEMENT])->distinct()->orderBy('IONIZATION')->all();
+        $ions_array = array();
+        foreach($ions as $ion){
+            if($ion->IONIZATION == -1){
+                $ions_array[] = -1;
+            }
+            else{
+                $ions_array[] = Atom::numberToRoman(intval($ion->IONIZATION) + 1);
+            }
+        }
+
         $atom_name = $atom->periodicTable->ABBR;
 
         $dataProvider = new ActiveDataProvider([
@@ -43,8 +59,11 @@ class TransitionsController extends Controller
 
         return $this->render('index', [
             'atom' => $atom,
+            'ions' => $ions_array,
             'atom_name' => $atom_name,
             'dataProvider' => $dataProvider,
+            'periodic_table' => $periodic_table,
+            'atoms' => $atoms,
         ]);
     }
 

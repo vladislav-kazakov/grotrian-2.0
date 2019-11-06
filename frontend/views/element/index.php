@@ -1,13 +1,43 @@
 <?php
 
 /* @var $this yii\web\View */
-
+/* @var $atoms \common\models\Atom */
 /* @var $atom \common\models\Atom */
+/* @var $periodic_table \common\models\PeriodicTable array of periodic table items */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 
 $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodicTable->ABBR]);
 ?>
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <?= $this->render('../element_picker/_element_picker', ['periodic_table' => $periodic_table,'atoms' => $atoms]) ?>
+        </div>
+    </div>
+    <nav >
+        <button class="button white" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><?=$atom->periodicTable->ABBR?></span>
+        </button>
+        <?php foreach ($ions as $ion):?>
+            <?php if($ion != -1): ?>
+                <button class="button white" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><?=$ion?></span>
+                </button>
+            <?php endif; ?>
+        <?php endforeach;?>
+        <?php foreach ($ions as $ion):?>
+            <?php if($ion == -1): ?>
+                <button class="button white" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><?=$atom->periodicTable->ABBR?></span><sup>–</sup>
+                </button>
+            <?php endif; ?>
+        <?php endforeach;?>
+    </nav>
+</div>
 
 <div class="container_12">
     <div class="grid_12" id="main">
@@ -61,14 +91,13 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
 
         <form method='POST'>
             <input type='submit' id='export' value='<?= Yii::t('element', 'Export to XSAMS') ?>' name='export'
-                   class="button white commonbuttom" download>
+                   class="button" download>
         </form>
 
 
+        <p>&nbsp;</p>
+        <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
         <?php if ($level_count != 0): ?>
-
-            <p>&nbsp;</p>
-            <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
             <?= Yii::t('element', 'Found') ?> <?= $level_count ?> <?= Yii::t('element', 'levels') ?>.
             <?= Html::a(Yii::t('element', '[view]'), ['/levels/index', 'id' => $atom->ID], ['class' => 'nav']) ?>
 
@@ -76,9 +105,6 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
 
 
         <?php if ($transition_count != 0): ?>
-
-            <p>&nbsp;</p>
-            <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
             <?= Yii::t('element', 'Found') ?> <?= $transition_count ?> <?= Yii::t('element', 'transitions') ?>.
             <?= Html::a(Yii::t('element', '[view]'), ['/transitions/index', 'id' => $atom->ID], ['class' => 'nav']) ?>
 
@@ -113,4 +139,3 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
     </div>
 </div>
 <!--End of Main -->
-
