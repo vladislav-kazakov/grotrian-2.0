@@ -12,32 +12,6 @@ use yii\bootstrap\NavBar;
 
 $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodicTable->ABBR]);
 ?>
-<div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <?= $this->render('../element_picker/_element_picker', ['periodic_table' => $periodic_table,'atoms' => $atoms]) ?>
-        </div>
-    </div>
-    <nav >
-        <button class="button white" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span><?=$atom->periodicTable->ABBR?></span>
-        </button>
-        <?php foreach ($ions as $ion):?>
-            <?php if($ion != -1): ?>
-                <button class="button white" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><?=$ion?></span>
-                </button>
-            <?php endif; ?>
-        <?php endforeach;?>
-        <?php foreach ($ions as $ion):?>
-            <?php if($ion == -1): ?>
-                <button class="button white" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><?=$atom->periodicTable->ABBR?></span><sup>–</sup>
-                </button>
-            <?php endif; ?>
-        <?php endforeach;?>
-    </nav>
-</div>
 
 <div class="container_12">
     <div class="grid_12" id="main">
