@@ -1,0 +1,159 @@
+.element_picker{
+    position: relative;
+    z-index:10000;
+    background-color: #FFF;
+    width: 495px;
+    height: 319px;
+}
+
+.newperiodic.pick {
+    display: inline;
+    float: left;
+    width:25px;
+    text-align: center;
+    position: relative;
+
+}
+
+.empty{
+    position:absolute;
+    border: 1px solid #000000;
+    background-color:#FFF;
+    font-size:10px;
+    height:27px;
+    width:27px;
+    text-align: center;
+
+}
+
+.newperiodic.empty.head{
+    margin-top: 20px;
+}
+
+.head{
+    margin-top:5px;
+}
+
+.plink {
+    text-decoration:none;
+}
+
+.pnum{
+    font-size:9px;
+    color:#333333;
+    line-height:11px;
+    display:block;
+
+}
+
+.pname{
+    font-size:12px;
+    color:#333333;
+    line-height:12px;
+    padding-bottom:2px;
+    display:block;
+}
+
+.pname_head {
+    color: #333333;
+    font-size: 12px;
+    height: 18px;
+    line-height: 12px;
+    margin-top: 7px;
+    display:block;
+}
+
+a.selected{
+    background-color:#9ed7ff;
+}
+
+/*Other non metals*/
+.onm {
+    background-color: #FFCC66;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Alkali Metals*/
+.am {
+    background-color:#6699FF;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Alkali Earth Metals*/
+.aem {
+    background-color:#DDA0DD;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Transition Metals*/
+.tm {
+    background-color:#F5F5DC;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Other Metals*/
+.om {
+    background-color:#CDEB8B;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Metalloids*/
+.mo{
+    background-color:#CCCC99;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+
+}
+
+/*Halogens*/
+.hl{
+    background-color:#ADE8C7;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Noble Gases*/
+.nb {
+    background-color:#E6E6FA;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*Lanthanide*/
+.lan {
+
+    background-color:#e4e4e4;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+
+}
+
+/*Actinide*/
+.act {
+    background-color:#d0d0d0;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}
+
+/*SuperActinide*/
+.sact {
+    background-color:#A9A9A9;
+    border:1px solid #000;
+    position:absolute;
+    text-align: center;
+}

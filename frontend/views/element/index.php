@@ -1,10 +1,14 @@
 <?php
 
 /* @var $this yii\web\View */
-
+/* @var $atoms \common\models\Atom */
 /* @var $atom \common\models\Atom */
+/* @var $periodic_table \common\models\PeriodicTable array of periodic table items */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 
 $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodicTable->ABBR]);
 ?>
@@ -18,19 +22,19 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
                 <!--, ichi_key: {#$ichi_key#}--></h3>
         <?php else: ?>
             <h3>Atom of <?= $atom->periodicTable->NAME_EN ?>, Z=<?= $atom->periodicTable->Z ?>,
-                I.P.=<?= $atom->IONIZATION_POTENCIAL ?> см<sup>-1</sup></h3>
+                I.P.=<?= $atom->IONIZATION_POTENCIAL ?> cm<sup>-1</sup></h3>
         <?php endif; ?>
 
         <?php if (!empty($atom->SPECTRUM_IMG)): ?>
             <?php if (Yii::$app->language == 'ru'): ?>
                 <?= Html::a(Html::img(['/spectrumpng/index', 'id' => $atom->ID], [
-                    'title' => "Спектр " . ($atom->IONIZATION == 0 ? "атома" : "иона") . ' ' . $atom->periodicTable->NAME_RU_ALT . ' ' . $atom_name,
-                    'alt' => "Спектр " . ($atom->IONIZATION == 0 ? "атома" : "иона") . ' ' . $atom->periodicTable->NAME_RU_ALT . ' ' . $atom_name
+                    'title' => "Спектр " . ($atom->IONIZATION == 0 ? "атома" : "иона") . ' ' . $atom->periodicTable->NAME_RU_ALT . ' (' . $atom_name . ')',
+                    'alt' => "Спектр " . ($atom->IONIZATION == 0 ? "атома" : "иона") . ' ' . $atom->periodicTable->NAME_RU_ALT . ' (' . $atom_name . ')'
                 ]), ['/spectrum/index', 'id' => $atom->ID]) ?>
             <?php else: ?>
                 <?= Html::a(Html::img(['/spectrumpng/index', 'id' => $atom->ID], [
-                    'title' => "Spectrum of " . $atom->periodicTable->NAME_EN . ' ' . ($atom->IONIZATION == 0 ? "atom" : "ion") . ' ' . $atom_name,
-                    'alt' => "Spectrum of " . $atom->periodicTable->NAME_EN . ' ' . ($atom->IONIZATION == 0 ? "atom" : "ion") . ' ' . $atom_name,
+                    'title' => "Spectrum of " . $atom->periodicTable->NAME_EN . ' ' . ($atom->IONIZATION == 0 ? "atom" : "ion") . ' (' . $atom_name . ')',
+                    'alt' => "Spectrum of " . $atom->periodicTable->NAME_EN . ' ' . ($atom->IONIZATION == 0 ? "atom" : "ion") . ' (' . $atom_name . ')',
                 ])) ?>
             <?php endif; ?>
             <br>
@@ -61,26 +65,22 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
 
         <form method='POST'>
             <input type='submit' id='export' value='<?= Yii::t('element', 'Export to XSAMS') ?>' name='export'
-                   class="button white commonbuttom" download>
+                   class="button" download>
         </form>
 
 
+        <p>&nbsp;</p>
+        <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
         <?php if ($level_count != 0): ?>
-
-            <p>&nbsp;</p>
-            <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
             <?= Yii::t('element', 'Found') ?> <?= $level_count ?> <?= Yii::t('element', 'levels') ?>.
-            [<?= Html::a(Yii::t('element', 'view'), ['/levels/index', 'id' => $atom->ID], ['class' => 'nav']) ?>]
+            <?= Html::a(Yii::t('element', '[view]'), ['/levels/index', 'id' => $atom->ID], ['class' => 'nav']) ?>
 
         <?php endif; ?>
 
 
         <?php if ($transition_count != 0): ?>
-
-            <p>&nbsp;</p>
-            <h4><?= Yii::t('element', 'Electronic structure') ?></h4>
             <?= Yii::t('element', 'Found') ?> <?= $transition_count ?> <?= Yii::t('element', 'transitions') ?>.
-            [<?= Html::a(Yii::t('element', 'view'), ['/transitions/index', 'id' => $atom->ID], ['class' => 'nav']) ?>]
+            <?= Html::a(Yii::t('element', '[view]'), ['/transitions/index', 'id' => $atom->ID], ['class' => 'nav']) ?>
 
         <?php endif; ?>
 
@@ -113,4 +113,3 @@ $this->title = Yii::t('app', 'Element description - {Z}', ['Z' => $atom->periodi
     </div>
 </div>
 <!--End of Main -->
-

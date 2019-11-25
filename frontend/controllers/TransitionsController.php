@@ -3,18 +3,16 @@
 namespace frontend\controllers;
 
 use common\models\Atom;
-use common\models\Level;
 use common\models\Transition;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\HttpException;
-use yii\helpers\ArrayHelper;
+use common\models\PeriodicTable;
 
 /**
  * Class TransitionsController
  * @package frontend\controllers
  */
-class TransitionsController extends Controller
+class TransitionsController extends MainController
 {
 
     /**
@@ -41,6 +39,7 @@ class TransitionsController extends Controller
             ],
         ]);
 
+        MainController::initTable($atom);
         return $this->render('index', [
             'atom' => $atom,
             'atom_name' => $atom_name,
